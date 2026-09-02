@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A. L. Amodeo — astronomy & astrophysics</title>
+<meta name="description" content="Astronomy and astrophysics projects of Antonio L. Amodeo: cataclysmic-variable research with Gaia and J-PLUS (Argus), astrophotography and more.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230b1220'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f0b429'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2338bdf8' stroke-width='1.5'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b1220;--panel:#101b30;--panel-2:#172640;--border:#22334f;--border-strong:#2f4568;--text:#e8ecf3;--text-2:#a9b6cb;--text-3:#6f809c;--cv:#f0b429;--gaia:#38bdf8;--radius:12px;--font:'Inter','Segoe UI',system-ui,-apple-system,Roboto,sans-serif;--mono:'JetBrains Mono','SFMono-Regular',Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#16284a 0%,var(--bg) 55%) fixed;color:var(--text);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:var(--gaia);text-decoration:none}a:hover{text-decoration:underline}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:48px 24px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.02em}
+.brand svg{width:34px;height:34px}
+nav a{color:var(--text-2);margin-left:22px;font-size:14px}
+.hero{margin:72px 0 56px;max-width:760px}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 18px;font-weight:700;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--cv)}
+.hero p{font-size:18px;color:var(--text-2);margin:0 0 10px}
+.tag{display:inline-block;font-family:var(--mono);font-size:12.5px;color:var(--gaia);border:1px solid var(--border-strong);border-radius:999px;padding:3px 12px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--border);border-radius:var(--radius);padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,transform .15s;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.card:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.card h2{margin:0;font-size:19px;display:flex;align-items:center;gap:10px}
+.card .k{font-family:var(--mono);font-size:12px;color:var(--text-3)}
+.card p{margin:0;color:var(--text-2);font-size:15px;flex:1}
+.card .go{font-size:14px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.soon{opacity:.7}
+.soon .go{color:var(--text-3)}
+h3.sec{margin:56px 0 14px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-weight:600}
+.about{color:var(--text-2);max-width:760px}
+footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--border);color:var(--text-3);font-size:13.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:var(--text-2)}
+@media (max-width:600px){nav a{margin-left:14px}.hero{margin:48px 0 40px}}
+</style>
+</head>
+<body>
+<canvas class="sky" id="sky"></canvas>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#101b30" stroke="#2f4568"/><circle cx="16" cy="16" r="10" fill="none" stroke="#38bdf8" stroke-width="1.5"/><circle cx="16" cy="16" r="4.5" fill="#f0b429"/><circle cx="24.5" cy="9" r="1.6" fill="#e8ecf3"/></svg>
+    <span>amodeo-al.it</span>
+  </div>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="https://github.com/antoniolamodeo" rel="me">GitHub</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="tag">astronomy · astrophysics · data science</span>
+  <h1>Watching the sky for <em>cataclysmic variables</em> — and everything else worth a second look.</h1>
+  <p>Research and side projects of Antonio L. Amodeo: accreting white dwarfs in Gaia and J-PLUS data, machine-learning classifiers for transient and variable sources, and nights spent under the sky with a camera.</p>
+</section>
+
+<h3 class="sec" id="projects">Projects</h3>
+<div class="grid">
+  <a class="card" href="https://argus.amodeo-al.it">
+    <span class="k">argus.amodeo-al.it</span>
+    <h2><span class="dot" style="background:var(--cv)"></span>Argus</h2>
+    <p>The control tower of the Gaia / J-PLUS cataclysmic-variable programme: data releases, joined tables, the scientific baseline, trained models and the probability of each candidate being a CV — with images of every object.</p>
+    <span class="go">Open the portal →</span>
+  </a>
+  <a class="card" href="https://github.com/antoniolamodeo/cv-gaia-pipeline">
+    <span class="k">github.com/antoniolamodeo/cv-gaia-pipeline</span>
+    <h2><span class="dot" style="background:var(--gaia)"></span>CV research with Gaia DR3</h2>
+    <p>Nineteen literature catalogues cross-matched with Gaia DR3, a colour–magnitude selection of 2.5 million candidates and a comparison with Gaia's own variability classification. Scripts, notes and figures.</p>
+    <span class="go">Read the notes and code →</span>
+  </a>
+  <div class="card soon">
+    <span class="k">foto.amodeo-al.it</span>
+    <h2><span class="dot" style="background:#a78bfa"></span>Astrophotography</h2>
+    <p>Deep-sky and wide-field images, with the equipment and the processing behind each one.</p>
+    <span class="go">Coming soon</span>
+  </div>
+  <div class="card soon">
+    <span class="k">next</span>
+    <h2><span class="dot" style="background:#4ade80"></span>Next releases</h2>
+    <p>J-PLUS DR4 features for the classifier, eROSITA and GALEX cross-matches, and Gaia DR4 in December 2026.</p>
+    <span class="go">In preparation</span>
+  </div>
+</div>
+
+<h3 class="sec" id="about">About</h3>
+<p class="about">I work on the detection and classification of cataclysmic variables — binaries in which a white dwarf accretes matter from a companion — combining Gaia astrometry and photometry, the J-PLUS multi-filter survey and the published literature, under the supervision of Prof. Alessandro Ederoclite (Javalambre Observatory). Papers are signed <span style="font-family:var(--mono);color:var(--text)">AMODEO, A. L.</span> By day I am a data scientist; by night, when the sky allows, an astrophotographer.</p>
+
+<footer>
+  <span>© 2026 Antonio L. Amodeo</span>
+  <span><a href="mailto:antoniolamodeo@gmail.com">e-mail</a> · <a href="https://github.com/antoniolamodeo">GitHub</a></span>
+</footer>
+</div>
+<script>
+(function(){var c=document.getElementById('sky'),x=c.getContext('2d'),s=[];function R(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;s=[];for(var i=0;i<Math.floor(c.width*c.height/9000);i++)s.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.4+.3,a:Math.random(),v:(Math.random()-.5)*.02});}
+function D(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<s.length;i++){var p=s[i];p.a+=p.v;if(p.a<.15||p.a>1)p.v=-p.v;x.globalAlpha=Math.max(.1,Math.min(1,p.a))*.8;x.fillStyle=i%23==0?'#f0b429':'#dbe7ff';x.beginPath();x.arc(p.x,p.y,p.r*devicePixelRatio,0,6.283);x.fill();}requestAnimationFrame(D);}
+addEventListener('resize',R);R();D();})();
+</script>
+</body>
+</html>
